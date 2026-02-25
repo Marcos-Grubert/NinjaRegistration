@@ -1,0 +1,4 @@
+-- V2: Migration for add collumn RANK in TB_NINJAS
+
+ALTER TABLE TB_NINJAS
+ADD COLUMN rank VARCHAR(255);
