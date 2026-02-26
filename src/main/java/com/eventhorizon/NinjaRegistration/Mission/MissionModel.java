@@ -1,6 +1,7 @@
 package com.eventhorizon.NinjaRegistration.Mission;
 
 import com.eventhorizon.NinjaRegistration.Ninja.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +24,6 @@ public class MissionModel {
     private String status;
 
     @OneToMany(mappedBy = "mission")
+    @JsonIgnore
     private List<NinjaModel> ninja;
 }
