@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninja")
 public class NinjaController {
 
     private NinjaService ninjaService;
@@ -19,31 +19,31 @@ public class NinjaController {
 
     //Adicionar ninja
     @PostMapping("/create")
-    public String criateNinja(){
-        return "Ninja criado";
+    public NinjaModel create(@RequestBody NinjaModel ninja){
+        return ninjaService.create(ninja);
     }
 
     //Mostrar ninjas
-    @GetMapping("/showNinjas")
-    public List<NinjaModel> showNinjas(){
-        return ninjaService.showNinjas();
+    @GetMapping("/showAll")
+    public List<NinjaModel> showAll(){
+        return ninjaService.showAll();
     }
 
     //
-    @GetMapping("/showNinja/{id}")
-    public NinjaModel showNinjaPerId(@PathVariable Long id){
-        return ninjaService.showNinjaPerId(id);
+    @GetMapping("/show/{id}")
+    public NinjaModel showById(@PathVariable Long id){
+        return ninjaService.showById(id);
     }
 
     //Altera dados do Ninja
-    @PutMapping("/updateNinjaPerId")
-    public String updateNinjaPerId(){
+    @PutMapping("/updateById")
+    public String updateById(){
         return "Ninja atualizado";
     }
 
     //Exclur Ninja
-    @DeleteMapping("/deleteNinjaPerId")
-    public String deleteNinjaPerId(){
+    @DeleteMapping("/deleteById")
+    public String deleteById(){
         return "Ninja deletado";
     }
 

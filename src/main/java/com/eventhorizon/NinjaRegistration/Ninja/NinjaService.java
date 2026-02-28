@@ -14,12 +14,16 @@ public class NinjaService {
     }
 
     //Show all ninjas
-    public List<NinjaModel> showNinjas(){
+    public List<NinjaModel> showAll(){
         return ninjaRepository.findAll();
     }
 
-    public NinjaModel showNinjaPerId(Long id){
+    public NinjaModel showById(Long id){
         Optional<NinjaModel> ninja = ninjaRepository.findById(id);
         return ninja.orElse(null);
+    }
+
+    public NinjaModel create(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
     }
 }
