@@ -1,7 +1,6 @@
 package com.eventhorizon.NinjaRegistration.Ninja;
 
 import com.eventhorizon.NinjaRegistration.Mission.MissionModel;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "tb_ninjas")
-public class NinjaModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class NinjaDTO {
     private Long id;
 
     private String name;
@@ -23,7 +18,5 @@ public class NinjaModel {
     private int age;
 
 
-    @ManyToOne
-    @JoinColumn(name = "missions_id")
     private MissionModel mission;
 }
