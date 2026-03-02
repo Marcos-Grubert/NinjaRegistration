@@ -1,5 +1,6 @@
 package com.eventhorizon.NinjaRegistration.Ninja;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +38,12 @@ public class NinjaService {
     }
 
     //delete ninja by id - its necessary to be void
-    public void deleteById(Long id){
-        ninjaRepository.deleteById(id);
+    public boolean deleteById(Long id){
+        if(ninjaRepository.existsById(id)){
+            ninjaRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     //Update ninja
