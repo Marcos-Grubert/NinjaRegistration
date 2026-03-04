@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Tabela de Ninjas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Lista de Ninjas</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Rank</th>
+            <th>Missão</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ninja : ${ninjas}">
+            <td th:text="${ninja.id}"></td>
+            <td th:text="${ninja.name}"></td>
+            <td th:text="${ninja.age}"></td>
+            <td th:text="${ninja.email}"></td>
+            <td th:text="${ninja.rank}"></td>
+            <td>
+                <span th:if="${ninja.mission != null}">
+                    <span th:text="${ninja.mission.name}"></span>
+                </span>
+            </td>
+            <td>
+                <a>Detalhes</a>
+                <a>Alterar</a>
+                <a th:href="@{/ninja/ui/delete/{id}(id=${ninja.id})}">Deletar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
