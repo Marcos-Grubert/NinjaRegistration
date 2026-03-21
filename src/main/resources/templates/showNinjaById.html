@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Detalhe do Ninja</title>
+    <link rel="stylesheet" th:href="@{/css/pages/showNinjaById.css}">
+</head>
+<body>
+<h1>Detalhes do Ninja</h1>
+<dl>
+    <dt>Identificador</dt>
+    <dd th:text="${ninja.id}"></dd>
+
+    <dt>Nome</dt>
+    <dd th:text="${ninja.name}"></dd>
+
+    <dt>Email</dt>
+    <dd th:text="${ninja.email}"></dd>
+
+    <dt>Rank</dt>
+    <dd th:text="${ninja.rank}"></dd>
+
+    <dt>Idade</dt>
+    <dd th:text="${ninja.age}"></dd>
+
+    <dt>Missão</dt>
+    <dd th:text="${ninja.mission.name}"></dd>
+
+    <dt>Descrição da Missão</dt>
+    <dd th:text="${ninja.mission.description}"></dd>
+
+    <dt>Dificuldade</dt>
+    <dd th:text="${ninja.mission.dificulty}"></dd>
+
+    <dt>Status</dt>
+    <dd th:text="${ninja.mission.status}"></dd>
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis (facilita manutenção) */
+:root {
+  --primary: #4f46e5;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --label: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container principal */
+dl {
+  background: var(--card);
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+h1 {
+  position: absolute;
+  top: 40px;
+  text-align: center;
+  width: 100%;
+  font-size: 28px;
+  color: var(--primary);
+}
+
+/* Cada linha */
+dt {
+  font-size: 14px;
+  color: var(--label);
+  margin-top: 16px;
+}
+
+dd {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Último item sem borda */
+dd:last-of-type {
+  border-bottom: none;
+}
+
+/* Destaque para missão */
+dt:nth-of-type(n+6) {
+  color: var(--primary);
+}
