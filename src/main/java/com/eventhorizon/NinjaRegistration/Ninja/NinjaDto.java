@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NinjaDTO {
+public class NinjaDto {
     private Long id;
 
     private String name;

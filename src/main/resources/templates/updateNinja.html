@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/pages/updateNinja.css}">
+    <title>Editar Ninja</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <form th:action="@{/ninja/ui/update/{id}(id=${ninja.id})}" th:object="${ninja}" th:method="put">
+
+            <input type="hidden" th:field="*{id}" />
+
+            <label>Nome:</label>
+            <input type="text" th:field="*{name}" />
+
+            <label>Idade:</label>
+            <input type="text" th:field="*{age}" />
+
+            <label>E-mail:</label>
+            <input type="text" th:field="*{email}" />
+
+            <label>Rank:</label>
+            <input type="text" th:field="*{rank}" />
+
+            <label>Missão Atual</label>
+            <select th:field="*{mission.id}" required>
+                <option value="">Selecione</option>
+                <option th:each="mission : ${missions}"
+                        th:value="${mission.id}"
+                        th:text="${mission.name}">
+                </option>
+            </select>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>

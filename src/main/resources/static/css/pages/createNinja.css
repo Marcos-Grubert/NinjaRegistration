@@ -1,0 +1,116 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 70px 1fr;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #1e293b;
+    font-size: 20px;
+    color: #38bdf8;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background: #020617;
+    border-right: 1px solid #1e293b;
+    padding: 20px;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background: #1e293b;
+    color: #38bdf8;
+}
+
+/* Main */
+main {
+    grid-area: main;
+    padding: 30px;
+}
+
+/* Form */
+form {
+    background: #020617;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 500px;
+    border: 1px solid #1e293b;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* espaçamento entre os campos */
+}
+
+/* Labels */
+label {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 10px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    color: #e2e8f0;
+}
+
+/* Botão */
+button {
+    margin-top: 10px;
+    padding: 12px;
+    width: 100%;
+    background: #38bdf8;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0ea5e9;
+}

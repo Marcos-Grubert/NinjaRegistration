@@ -1,72 +1,84 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Variáveis (facilita manutenção) */
-:root {
-  --primary: #4f46e5;
-  --bg: #f5f7fb;
-  --card: #ffffff;
-  --text: #1f2937;
-  --label: #6b7280;
-  --border: #e5e7eb;
-}
-
-/* Corpo da página */
+/* Configurações Gerais do Corpo */
 body {
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    background-color: #020617; /* O fundo escuro 'Deep Space' */
+    color: #f1f5f9; /* Texto claro para contraste */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Container principal */
-dl {
-  background: var(--card);
-  padding: 30px 40px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* Título */
+/* Título Principal */
 h1 {
-  position: absolute;
-  top: 40px;
-  text-align: center;
-  width: 100%;
-  font-size: 28px;
-  color: var(--primary);
+    color: #38bdf8; /* Azul claro para destacar o título */
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Cada linha */
+/* Container da Lista de Definição */
+dl {
+    background: #0f172a; /* Um tom levemente mais claro que o fundo principal */
+    width: 100%;
+    max-width: 600px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    border: 1px solid #1e293b;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Coloca o título à esquerda e o valor à direita */
+    gap: 15px 10px;
+}
+
+/* Títulos (Identificador, Nome, etc.) */
 dt {
-  font-size: 14px;
-  color: var(--label);
-  margin-top: 16px;
+    color: #94a3b8; /* Cinza azulado discreto */
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 
+/* Valores (ID, Nome do Ninja, etc.) */
 dd {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 4px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+    margin: 0;
+    padding: 8px 12px;
+    background: #1e293b; /* Fundo para destacar a informação */
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 1rem;
+    border-left: 3px solid #38bdf8; /* Detalhe lateral para dar charme */
 }
 
-/* Último item sem borda */
-dd:last-of-type {
-  border-bottom: none;
+/* Ajuste para itens de texto longo (Descrição da Missão) */
+dd:nth-of-type(n+12) {
+    line-height: 1.5;
 }
 
-/* Destaque para missão */
-dt:nth-of-type(n+6) {
-  color: var(--primary);
+/* Estilização para o 'Não informado' ou valores vazios */
+dd:empty::before,
+dd[th\:text*='Não informado'] {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Botão de Voltar (caso você queira adicionar um link no final) */
+.btn-back {
+    margin-top: 20px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.btn-back:hover {
+    color: #7dd3fc;
 }

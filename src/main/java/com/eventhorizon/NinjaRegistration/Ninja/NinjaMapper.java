@@ -4,26 +4,26 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class NinjaMapper {
-    public NinjaModel map(NinjaDTO ninjaDTO) {
+    public NinjaModel map(NinjaDto NinjaDto) {
         NinjaModel ninjaModel = new NinjaModel();
-        ninjaModel.setId(ninjaDTO.getId());
-        ninjaModel.setName(ninjaDTO.getName());
-        ninjaModel.setEmail(ninjaDTO.getEmail());
-        ninjaModel.setRank(ninjaDTO.getRank());
-        ninjaModel.setAge(ninjaDTO.getAge());
-        ninjaModel.setMission(ninjaDTO.getMission());
+        ninjaModel.setId(NinjaDto.getId());
+        ninjaModel.setName(NinjaDto.getName());
+        ninjaModel.setEmail(NinjaDto.getEmail());
+        ninjaModel.setRank(NinjaDto.getRank());
+        ninjaModel.setAge(NinjaDto.getAge());
+        ninjaModel.setMission(NinjaDto.getMission());
 
         return ninjaModel;
     }
 
-    public NinjaDTO map(NinjaModel ninjaModel) {
-        NinjaDTO ninjaDTO = new NinjaDTO();
-        ninjaDTO.setId(ninjaModel.getId());
-        ninjaDTO.setName(ninjaModel.getName());
-        ninjaDTO.setEmail(ninjaModel.getEmail());
-        ninjaDTO.setRank(ninjaModel.getRank());
-        ninjaDTO.setAge(ninjaModel.getAge());
-        ninjaDTO.setMission(ninjaModel.getMission());
-        return ninjaDTO;
+    public NinjaDto map(NinjaModel ninjaModel) {
+        NinjaDto NinjaDto = new NinjaDto();
+        NinjaDto.setId(ninjaModel.getId());
+        NinjaDto.setName(ninjaModel.getName());
+        NinjaDto.setEmail(ninjaModel.getEmail());
+        NinjaDto.setRank(ninjaModel.getRank());
+        NinjaDto.setAge(ninjaModel.getAge());
+        NinjaDto.setMission(ninjaModel.getMission());
+        return NinjaDto;
     }
 }

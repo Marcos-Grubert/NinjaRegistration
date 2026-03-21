@@ -6,41 +6,50 @@
     <link rel="stylesheet" th:href="@{/css/pages/showNinjas.css}">
 </head>
 <body>
-<h1>Lista de Ninjas</h1>
-<div class="header">
-    <a href="/ninja/ui/form" class="btn">+ Novo Ninja</a>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Email</th>
-            <th>Rank</th>
-            <th>Missão</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="ninja : ${ninjas}">
-            <td th:text="${ninja.id}"></td>
-            <td th:text="${ninja.name}"></td>
-            <td th:text="${ninja.age}"></td>
-            <td th:text="${ninja.email}"></td>
-            <td th:text="${ninja.rank}"></td>
-            <td>
+    <header>
+        <h1>Lista de Ninjas</h1>
+    </header>
+    <nav>
+
+    </nav>
+    <main>
+        <div>
+            <a th:href="@{/ninja/ui/createNinja}" class="btn">+ Novo Ninja</a>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Email</th>
+                <th>Rank</th>
+                <th>Missão</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ninja : ${ninjas}">
+                <td th:text="${ninja.id}"></td>
+                <td th:text="${ninja.name}"></td>
+                <td th:text="${ninja.age}"></td>
+                <td th:text="${ninja.email}"></td>
+                <td th:text="${ninja.rank}"></td>
+                <td>
                 <span th:if="${ninja.mission != null}">
                     <span th:text="${ninja.mission.name}"></span>
                 </span>
-            </td>
-            <td>
-                <a th:href="@{/ninja/ui/show/{id}(id=${ninja.id})}">Detalhes</a>
-                <a th:href="@{/ninja/ui/#/{id}(id=${ninja.id})}">Alterar</a>
-                <a th:href="@{/ninja/ui/delete/{id}(id=${ninja.id})}">Deletar</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+                </td>
+                <td>
+                    <a th:href="@{/ninja/ui/show/{id}(id=${ninja.id})}">Detalhes</a>
+                    <a th:href="@{/ninja/ui/updateNinja/{id}(id=${ninja.id})}">Editar</a>
+                    <a th:href="@{/ninja/ui/delete/{id}(id=${ninja.id})}">Deletar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+    </footer>
 </body>
 </html>

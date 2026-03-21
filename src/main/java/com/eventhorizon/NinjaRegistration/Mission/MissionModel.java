@@ -22,7 +22,7 @@ public class MissionModel {
     private Long id;
     private String name;
     private String description;
-    private String dificulty;
+    private String difficulty;
     private String status;
 
     @OneToMany(mappedBy = "mission")

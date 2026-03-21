@@ -30,10 +30,10 @@
     <dd th:text="${ninja.mission.description}"></dd>
 
     <dt>Dificuldade</dt>
-    <dd th:text="${ninja.mission.dificulty}"></dd>
+    <dd th:text="${ninja.mission?.difficulty ?: 'Não informado'}"></dd>
 
     <dt>Status</dt>
-    <dd th:text="${ninja.mission.status}"></dd>
+    <dd th:text="${ninja.mission?.status ?: 'Não informado'}"></dd>
 </dl>
 
 </body>

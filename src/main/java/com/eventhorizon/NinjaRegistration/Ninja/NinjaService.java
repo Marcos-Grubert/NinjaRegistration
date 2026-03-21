@@ -1,13 +1,10 @@
 package com.eventhorizon.NinjaRegistration.Ninja;
 
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
+@org.springframework.stereotype.Service
 public class NinjaService {
     private final NinjaRepository ninjaRepository;
     private final NinjaMapper ninjaMapper;
@@ -18,7 +15,7 @@ public class NinjaService {
     }
 
     //Show all ninjas
-    public List<NinjaDTO> showAll(){
+    public List<NinjaDto> showAll(){
         List<NinjaModel> ninjas = ninjaRepository.findAll();
         //de algum modo essa doidera percorre a lista do model e retorna na lista DTO, como funciona não sei. te, que aprender
         return ninjas.stream()
@@ -26,13 +23,13 @@ public class NinjaService {
                 .collect(Collectors.toList());
     }
 
-    public NinjaDTO showById(Long id){
+    public NinjaDto showById(Long id){
         Optional<NinjaModel> ninja = ninjaRepository.findById(id);
         return ninja.map(ninjaMapper::map).orElse(null);
     }
 
-    public NinjaDTO create(NinjaDTO ninjaDTO){
-        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
+    public NinjaDto create(NinjaDto NinjaDto){
+        NinjaModel ninjaModel = ninjaMapper.map(NinjaDto);
         ninjaModel = ninjaRepository.save(ninjaModel);
         return ninjaMapper.map(ninjaModel);
     }
@@ -47,7 +44,7 @@ public class NinjaService {
     }
 
     //Update ninja
-    public NinjaDTO update(NinjaDTO ninja, Long id) {
+    public NinjaDto update(NinjaDto ninja, Long id) {
         Optional<NinjaModel> existingNinja = ninjaRepository.findById(id);
         if(existingNinja.isPresent()){
             NinjaModel updatedNinja = ninjaMapper.map(ninja);
