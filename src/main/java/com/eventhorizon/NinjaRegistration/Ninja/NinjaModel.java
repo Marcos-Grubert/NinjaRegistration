@@ -25,7 +25,7 @@ public class NinjaModel {
     private int age;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "missions_id")
     private MissionModel mission;
 }

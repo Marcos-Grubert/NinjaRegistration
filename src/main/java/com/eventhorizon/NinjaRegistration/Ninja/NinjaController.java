@@ -1,5 +1,8 @@
 package com.eventhorizon.NinjaRegistration.Ninja;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +14,6 @@ import java.util.List;
 public class NinjaController {
 
     private final NinjaService ninjaservice;
-    private NinjaResponseApi ninjaResponseApi;
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaservice = ninjaService;
@@ -19,6 +21,10 @@ public class NinjaController {
 
     //Adicionar ninja
     @PostMapping("/create")
+    @Operation(summary = "Insert new ninja in database",description = "this rote return a message in case of sucess")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Ninja Criado com Sucesso")
+    })
     public ResponseEntity<?> create(@RequestBody NinjaDto NinjaDto){
 
         NinjaDto newNinjaDto = ninjaservice.create(NinjaDto);

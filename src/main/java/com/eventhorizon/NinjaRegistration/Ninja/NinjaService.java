@@ -16,7 +16,7 @@ public class NinjaService {
 
     //Show all ninjas
     public List<NinjaDto> showAll(){
-        List<NinjaModel> ninjas = ninjaRepository.findAll();
+        List<NinjaModel> ninjas = ninjaRepository.findAllWithMissions();
         //de algum modo essa doidera percorre a lista do model e retorna na lista DTO, como funciona não sei. te, que aprender
         return ninjas.stream()
                 .map(ninjaMapper::map)
